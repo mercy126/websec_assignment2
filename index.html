@@ -1,0 +1,54 @@
+<html lang="en">
+<meta charset="utf-8">
+<head>
+    <title>
+        test
+    </title>
+</head>
+<body>
+
+<p>
+<button onclick="LoopAlert()">Loop Alert</button>
+</p>
+<script>
+function LoopAlert(){
+
+    for(let i=1;;i++){
+      alert("第"+i+"次弹窗")
+    }
+}
+</script>
+
+<p>
+<button onclick="ClosePage()">Close Page</button>
+</p>
+<script>
+var i=6
+function ClosePage(){
+  i=i-1
+  document.title="本窗口将在"+i+"秒后自动关闭!";
+  
+  if(i>0){
+    setTimeout("ClosePage();",1000);
+  }
+  else{
+    self.close();
+  }
+}
+</script>
+
+<p>
+<button onclick="FocusWindow()">Focus Window</button>
+</p>
+<script>
+function FocusWindow() {
+	const win = window.open('', '', 'width=100,height=100')
+	setInterval(() => {
+		win.focus()
+	}, 1000)
+	winArr.push(win)
+}
+</script>
+
+</body>
+</html>
